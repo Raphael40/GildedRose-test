@@ -36,4 +36,13 @@ describe("Gilded Rose", function() {
     expect(items[0].sellIn).toBe(5);
     expect(items[0].quality).toBe(40);
   });
+
+  it("Aged Brie", function() {
+    const gildedRose = new Shop([new Item("Aged Brie", 10, 15)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("Aged Brie");
+    expect(items[0].sellIn).toBe(9);
+    expect(items[0].quality).toBe(16);
+  });
 });
