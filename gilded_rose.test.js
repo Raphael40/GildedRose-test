@@ -10,6 +10,15 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(0);
   });
 
+  it("should fooo", function() {
+    const gildedRose = new Shop([new Item("foo", -1, 0)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("foo");
+    expect(items[0].sellIn).toBe(-2);
+    expect(items[0].quality).toBe(0);
+  });
+
   it("should fum", function() {
     const gildedRose = new Shop([new Item("fum", 4, 8)]);
     const items = gildedRose.updateQuality();
@@ -19,6 +28,15 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(7);
   });
 
+  it('should fi', () => {
+    const gildedRose = new Shop([new Item("fi", 4, 12)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("fi");
+    expect(items[0].sellIn).toBe(3);
+    expect(items[0].quality).toBe(11);
+  })
+
   it("backstage pass", function() {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 6)]);
     const items = gildedRose.updateQuality();
@@ -26,6 +44,15 @@ describe("Gilded Rose", function() {
     expect(items[0].name).toBe("Backstage passes to a TAFKAL80ETC concert");
     expect(items[0].sellIn).toBe(4);
     expect(items[0].quality).toBe(9);
+  });
+
+  it("backstage pass", function() {
+    const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 8, 38)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("Backstage passes to a TAFKAL80ETC concert");
+    expect(items[0].sellIn).toBe(7);
+    expect(items[0].quality).toBe(40);
   });
 
   it("Sulfuras, Hand of Ragnaros", function() {
@@ -46,13 +73,13 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(16);
   });
 
-  it("Aged Brie", function() {
-    const gildedRose = new Shop([new Item("Aged Brie", 0, 15)]);
+  it("Aged Brie 50", function() {
+    const gildedRose = new Shop([new Item("Aged Brie", -1, 50)]);
     const items = gildedRose.updateQuality();
 
     expect(items[0].name).toBe("Aged Brie");
-    expect(items[0].sellIn).toBe(-1);
-    expect(items[0].quality).toBe(17);
+    expect(items[0].sellIn).toBe(-2);
+    expect(items[0].quality).toBe(50);
   });
 
   it("two items", function() {
