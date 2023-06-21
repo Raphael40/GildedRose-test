@@ -1,7 +1,7 @@
 const {Shop, Item} = require("./gilded_rose");
 
-describe("Gilded Rose", function() {
-  it("should foo", function() {
+describe("Gilded Rose", () => {
+  it("should foo", () => {
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
     const items = gildedRose.updateQuality();
 
@@ -10,7 +10,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(0);
   });
 
-  it("should fooo", function() {
+  it("should fooo", () => {
     const gildedRose = new Shop([new Item("foo", -1, 0)]);
     const items = gildedRose.updateQuality();
 
@@ -19,7 +19,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(0);
   });
 
-  it("should fum", function() {
+  it("should fum", () => {
     const gildedRose = new Shop([new Item("fum", 4, 8)]);
     const items = gildedRose.updateQuality();
 
@@ -37,7 +37,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(11);
   })
 
-  it("backstage pass", function() {
+  it("backstage pass", () => {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 6)]);
     const items = gildedRose.updateQuality();
 
@@ -46,7 +46,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(9);
   });
 
-  it("backstage pass", function() {
+  it("backstage pass", () => {
     const gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 8, 38)]);
     const items = gildedRose.updateQuality();
 
@@ -55,7 +55,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(40);
   });
 
-  it("Sulfuras, Hand of Ragnaros", function() {
+  it("Sulfuras, Hand of Ragnaros", () => {
     const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", 5, 40)]);
     const items = gildedRose.updateQuality();
 
@@ -64,7 +64,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(40);
   });
 
-  it("Aged Brie", function() {
+  it("Aged Brie", () => {
     const gildedRose = new Shop([new Item("Aged Brie", 10, 15)]);
     const items = gildedRose.updateQuality();
 
@@ -73,7 +73,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(16);
   });
 
-  it("Aged Brie 50", function() {
+  it("Aged Brie 50", () => {
     const gildedRose = new Shop([new Item("Aged Brie", -1, 50)]);
     const items = gildedRose.updateQuality();
 
@@ -82,7 +82,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(50);
   });
 
-  it("two items", function() {
+  it("two items", () => {
     const gildedRose = new Shop([new Item("Aged Brie", 0, 15), new Item("fum", 4, 8)]);
     const items = gildedRose.updateQuality();
 
@@ -93,4 +93,22 @@ describe("Gilded Rose", function() {
     expect(items[1].sellIn).toBe(3);
     expect(items[1].quality).toBe(7);
   });
+
+  it("has conjured items", () => {
+    const gildedRose = new Shop([new Item("Conjured spirit", 12, 40)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("Conjured spirit");
+    expect(items[0].sellIn).toBe(11);
+    expect(items[0].quality).toBe(38);
+  })
+
+  it("has conjured items", () => {
+    const gildedRose = new Shop([new Item("Conjured Monkey", -4, 20)]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].name).toBe("Conjured Monkey");
+    expect(items[0].sellIn).toBe(-5);
+    expect(items[0].quality).toBe(16);
+  })
 });

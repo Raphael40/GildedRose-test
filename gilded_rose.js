@@ -40,6 +40,16 @@ class Items {
     item.sellIn = item.sellIn - 1;
   }
 
+  conjured(item) {
+    if (item.quality > 0) {
+      if (item.sellIn < 0) {
+        item.quality = item.quality - 4;
+      } else {
+        item.quality = item.quality - 2;
+      }
+    }
+    item.sellIn = item.sellIn - 1;
+  }
 }
 
 class Shop {
@@ -55,6 +65,8 @@ class Shop {
         itemsClass.agedBrie(item)
       } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
         itemsClass.concert(item)
+      } else if (item.name.includes('Conjured')) {
+        itemsClass.conjured(item)
       } else if (item.name == 'Sulfuras, Hand of Ragnaros') {
         return
       } else {
@@ -65,7 +77,6 @@ class Shop {
     return this.items;
   }
 }
-
 
 module.exports = {
   Item,
